@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+  <style>
+        body, html {height: 100%;background-color: #152238;}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif,15}
+.menu {display: none}
+
+    .container {
+      width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f2f2f2;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type=text],
+    input[type=email],
+    select,
+    input[type=tel],
+    input[type=password],
+    input[type=number],
+    input[type=range],
+    input[type=date],
+    input[type=time],
+    input[type=datetime-local] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    input[type=file] {
+      margin-top: 10px;
+    }
+
+    input[type=submit] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+    }
+
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  </style>
+</head>
+<body>
+    <div class="w3-top w3-hide-small">
+        <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
+          <a href="inde.html" class="w3-bar-item w3-button">HOME</a>
+          <a href="Menu.html" class="w3-bar-item w3-button">MENU</a>
+          <a href="About.html" class="w3-bar-item w3-button">ABOUT</a>
+          <a href="Contact.html" class="w3-bar-item w3-button">CONTACT</a>
+          <a href="#order" class="w3-bar-item w3-button">Order</a>
+          <a href="#LogIn" class="w3-bar-item w3-button">Sign in/Up</a>
+        </div>
+      </div>
+<br><br><br><br>
+<h1 style="text-align: center; color: #EFEFEF;">Register Now&</h1>
+<h1 style="text-align: center; color: #EFEFEF;">Join Our Community!</h1>
+  <div class="container">
+    <form action="submit_registration.php" method="post" enctype="multipart/form-data">
+      <div class="clearfix">
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" name="first_name" placeholder="Your first name.." required>
+      </div>
+      <div class="clearfix">
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="last_name" placeholder="Your last name.." required>
+      </div>
+      <div class="clearfix">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email.." required>
+      </div>
+      <div class="clearfix">
+        <label for="country">Country</label>
+        <select id="country" name="country" required>
+          <option value="">Select Country</option>
+          <option value="usa">USA</option>
+          <option value="uk">UK</option>
+          <option value="canada">Canada</option>
+          <option value="australia">Australia</option>
+        </select>
+      </div>
+      <div class="clearfix">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Your phone number.." required>
+      </div>
+      <div class="clearfix">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Your password.." required>
+      </div>
+     
+      <div class="clearfix">
+        <label for="age_range">Age Range</label>
+        <input type="range" id="age_range" name="age_range" min="15" max="100" oninput="updateAgeRange()">
+      </div>
+      <div class="clearfix">
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" placeholder="Your age.." min="15" max="100" oninput="updateAgeManually()">
+      </div>
+
+
+      <div class="clearfix">
+        <label for="birthdate">Date of Birth</label>
+        <input type="date" id="birthdate" name="birthdate" required>
+      </div>
+      <div class="clearfix">
+        <label for="meeting_time">Registeration Time</label>
+        <input type="time" id="meeting_time" name="meeting_time" required>
+      </div>
+      <div class="clearfix">
+        <label for="meeting_datetime">Registeration Date & Time confirmation</label>
+        <input type="datetime-local" id="meeting_datetime" name="meeting_datetime" required>
+      </div>
+      <div class="clearfix">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Write your message here.." required></textarea>
+      </div>
+      <div class="clearfix">
+        <label for="profile_picture">Profile Picture</label>
+        <input type="file" id="profile_picture" name="profile_picture" accept="image/*">
+      </div>
+      <div class="clearfix">
+        <label for="favorite_meal">Favorite Meal</label>
+        <input list="meals" id="favorite_meal" name="favorite_meal" required>
+        <datalist id="meals">
+          <option value="Burger"></option>
+          <option value="Pizza"></option>
+          <option value="Steak"></option>
+          <option value="Salad"></option>
+        </datalist>
+      </div>
+      <div class="clearfix">
+        <label>Gender</label><br>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+      </div>
+      <div class="clearfix">
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+  </div>
+  <br><br><br><br>
+  <footer class="w3-center w3-black w3-padding-small w3-large">
+    <p>Find us at some address at some place or call us at 05050515-122330</p>
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+  </footer>
+  <script>
+    // JavaScript code
+    function updateAgeRange() {
+      var ageRange = document.getElementById('age_range');
+      var age = document.getElementById('age');
+      age.value = ageRange.value;
+    }
+
+    function updateAgeManually() {
+      var ageRange = document.getElementById('age_range');
+      var age = document.getElementById('age');
+      if (age.value < 5 || age.value > 60) {
+        ageRange.value = '';
+      } else {
+        ageRange.value = age.value;
+      }
+    }
+  </script>
+</body>
+</html>
