@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>YasResturant</title>
+<title>YasoResturant</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -17,7 +17,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
  height: 100vh;
  position: relative;
 }
- 
+ /*slide design*/
+
 .slider .slide {
  position: absolute;
  top: 0;
@@ -27,9 +28,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
  background-size: cover;
  background-position: center;
  animation: slider 12.5s infinite;
- z-index: -1;
+ z-index: -19;
 }
- 
+ /*Animation delay/design*/
+
 .slider .slide:nth-child(1) {
    background-image: url('images/tastyBurger.jpg');
    animation-delay: 0s;
@@ -69,6 +71,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
    animation-timing-function: ease;
  }
 }
+/*Comments design*/
+#comment-box, #post {
+    border: none;
+    border-radius: 5px;
+    width: auto;
+}
+#post:hover{
+    background-color: deeppink;
+}
+#commentSection{
+  background-color: gray;
+}
+
 </style>
 </head>
 <body>
@@ -76,23 +91,25 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <!-- Navbar (sit on top) -->
 <div class="w3-top w3-hide-small">
   <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
-    <a href="MyResturant.html" class="w3-bar-item w3-button">HOME</a>
+    <a href="index.html" class="w3-bar-item w3-button">HOME</a>
     <a href="Menu.html" class="w3-bar-item w3-button">MENU</a>
     <a href="About.html" class="w3-bar-item w3-button">ABOUT</a>
     <a href="Contact.html" class="w3-bar-item w3-button">CONTACT</a>
-    <a href="#order" class="w3-bar-item w3-button">Order</a>
-    <a href="#LogIn" class="w3-bar-item w3-button">Sign in/Up</a>
-  </div>
+    <a href="" class="w3-bar-item w3-button">Order</a>
+    <a href="" class="w3-bar-item w3-button">Sign in/Up</a>
+    <div style="float: right; position: absolute; width: 150px; height: 150px;margin-left: 83%;">
+      <img src="images/BCM9-150ppp.jpg" style="width: 150px; height: 150px; position: absolute;">
+    </div>
+    </div>
 </div>
-  
 <!-- Header with image -->
 <header class="w3-display-container w3-grayscale-min" id="home">
   <div class="w3-display-bottomleft w3-padding" style="position: absolute;">
     <span class="w3-tag w3-xlarge">Open from 10am to 12pm</span>
   </div>
-  <div class="w3-display-middle w3-center">
-    <span class="w3-text-white w3-hide-small" style="font-size:100px">thin<br>CRUST PIZZA</span>
-    <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>thin<br>CRUST PIZZA</b></span>
+  <div class="w3-display-middle w3-center" style="z-index: 20;">
+    <span class="w3-text-white w3-hide-small" style="font-size:100px">SATISFY<br>YOUR CRAVING</span>
+    <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>SATISFY<br>YOUR CRAVING</b></span>
     <p><a href="Menu.html" class="w3-button w3-xxlarge w3-black">Let me see the menu</a></p>
   </div>
   <div class="slider">
@@ -104,11 +121,33 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
   </div>
 </header>
 
+<!--Comment Section-->
+<div class="w3-container w3-teal">
+  <h2>Comments and Reviews</h2>
+  <input type="text" id="comment-box" class="w3-input w3-border w3-light-grey w3-animate-input" style="width: 30%;"placeholder="Enter comment">
+  <button id="post" class="w3-btn w3-blue-grey">Post</button>
+  <ul id="unordered">
+     
+  </ul>
+</div>
+
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-small w3-large">
   <p>Find us at some address at some place or call us at 05050515-122330</p>
   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
 </footer>
 
+<script>
+  var post= document.getElementById("post");
+post.addEventListener("click", function(){
+    var commentBoxValue= document.getElementById("comment-box").value;
+ 
+    var li = document.createElement("li");
+    var text = document.createTextNode(commentBoxValue);
+    li.appendChild(text);
+    document.getElementById("unordered").appendChild(li);
+ 
+});
+</script>
 </body>
 </html>
