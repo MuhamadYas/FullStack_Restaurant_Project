@@ -27,8 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $body .= "Age Range: " . $ageRange . "\n";
     $body .= "Age: " . $age . "\n";
     $body .= "Date of Birth: " . $birthdate . "\n";
-    $body .= "Registration Time: " . $registrationTime . "\n";
-    $body .= "Registration Date & Time confirmation: " . $registrationDateTime . "\n";
+    $body .= "Meeting Time: " . $registrationTime . "\n";
+    $body .= "Meeting Date & Time confirmation: " . $registrationDateTime . "\n";
     $body .= "Message: " . $message . "\n";
     $body .= "Favorite Meal: " . $favoriteMeal . "\n";
     $body .= "Gender: " . $gender . "\n";
