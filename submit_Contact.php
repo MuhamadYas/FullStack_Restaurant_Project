@@ -27,21 +27,37 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $body .= "Age Range: " . $ageRange . "\n";
     $body .= "Age: " . $age . "\n";
     $body .= "Date of Birth: " . $birthdate . "\n";
-    $body .= "Meeting Time: " . $registrationTime . "\n";
-    $body .= "Meeting Date & Time confirmation: " . $registrationDateTime . "\n";
+    $body .= "Registration Time: " . $registrationTime . "\n";
+    $body .= "Registration Date & Time confirmation: " . $registrationDateTime . "\n";
     $body .= "Message: " . $message . "\n";
     $body .= "Favorite Meal: " . $favoriteMeal . "\n";
     $body .= "Gender: " . $gender . "\n";
 
-
-
     // Send the email
     if (mail("muhayass06@gmail.com", $subject, $body)) {
         // Email sent successfully
-        echo "Thank you for your message. We will get back to you soon.";
+       echo "<script>";
+    echo "var response = prompt('The message has been sent successfully. Press 1 to send another message or 2 to go back to the homepage.');";
+    echo "if (response === '1') {";
+    echo "  window.location.href = 'ContactForm.html';";
+    echo "} else if (response === '2') {";
+    echo "  window.location.href = 'index.html';";
+    echo "} else {";
+    echo "  window.location.reload();";
+    echo "}";
+    echo "</script>";
     } else {
         // Failed to send email
-        echo "Oops! An error occurred while sending your message. Please try again.";
+        echo "<script>";
+    echo "var response = prompt('Failed to send the message. Please try again. Press 1 to send another message or 2 to go back to the homepage.');";
+    echo "if (response === '1') {";
+    echo "  window.location.href = 'ContactForm.html';";
+    echo "} else if (response === '2') {";
+    echo "  window.location.href = 'index.html';";
+    echo "} else {";
+    echo "  window.location.reload();";
+    echo "}";
+    echo "</script>";
     }
 }
 ?>
